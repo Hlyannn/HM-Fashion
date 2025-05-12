@@ -3,8 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import HeroSection from '@/components/HeroSection';
-import FeaturedCategories from '@/components/FeaturedCategories';
-import NewArrivals from '@/components/NewArrivals';
+import FeaturedCollection from '@/components/FeaturedCollection';
 import Testimonials from '@/components/Testimonials';
 import Subscribe from '@/components/Subscribe';
 import Footer from '@/components/Footer';
@@ -53,8 +52,7 @@ const Index = () => {
       <Navbar />
       <main>
         <HeroSection />
-        <FeaturedCategories />
-        <NewArrivals />
+        <FeaturedCollection />
         <Testimonials />
         <Subscribe />
       </main>

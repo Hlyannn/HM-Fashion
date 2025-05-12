@@ -1,13 +1,11 @@
 
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { Button } from '@/components/ui/button';
 
 const HeroSection = () => {
   const heroRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const taglineRef = useRef<HTMLParagraphElement>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
@@ -20,11 +18,6 @@ const HeroSection = () => {
       { opacity: 0, y: 20 }, 
       { opacity: 1, y: 0, duration: 1 },
       "-=0.8"
-    )
-    .fromTo(buttonRef.current, 
-      { opacity: 0, scale: 0.9 }, 
-      { opacity: 1, scale: 1, duration: 0.8 },
-      "-=0.5"
     );
     
     return () => {
@@ -57,22 +50,15 @@ const HeroSection = () => {
           className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6"
           style={{ opacity: 0 }}
         >
-          HM Fashion
+          Trendy Looks. Timeless Style.
         </h1>
         <p 
           ref={taglineRef} 
           className="text-xl md:text-2xl text-white mb-10"
           style={{ opacity: 0 }}
         >
-          Trendy Looks. Timeless Style.
+          Upgrade your wardrobe with the latest fashion.
         </p>
-        <Button 
-          ref={buttonRef} 
-          className="bg-white text-fashion-dark-gray hover:bg-fashion-lavender hover:text-fashion-dark-gray text-lg px-8 py-6"
-          style={{ opacity: 0 }}
-        >
-          Shop Now
-        </Button>
       </div>
     </section>
   );

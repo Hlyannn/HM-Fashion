@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
+import { Menu } from 'lucide-react';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -35,33 +36,19 @@ const Navbar = () => {
           
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#" className="text-fashion-dark-gray hover:text-primary transition-colors">Men</a>
-            <a href="#" className="text-fashion-dark-gray hover:text-primary transition-colors">Women</a>
-            <a href="#" className="text-fashion-dark-gray hover:text-primary transition-colors">Accessories</a>
-            <a href="#" className="text-fashion-dark-gray hover:text-primary transition-colors">Collections</a>
-            <button className="bg-fashion-dark-gray text-white px-6 py-2 rounded hover:bg-primary transition-colors">
-              Shop Now
-            </button>
+            <a href="#" className="text-fashion-dark-gray hover:text-primary transition-colors">Home</a>
+            <a href="#" className="text-fashion-dark-gray hover:text-primary transition-colors">About</a>
+            <a href="#" className="text-fashion-dark-gray hover:text-primary transition-colors">Feature</a>
+            <a href="#" className="text-fashion-dark-gray hover:text-primary transition-colors">Contact</a>
           </div>
           
           {/* Mobile Menu Button */}
           <button 
             className="md:hidden text-fashion-dark-gray"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
           >
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              className="h-6 w-6" 
-              fill="none" 
-              viewBox="0 0 24 24" 
-              stroke="currentColor"
-            >
-              {isMobileMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
+            <Menu size={24} />
           </button>
         </nav>
         
@@ -69,13 +56,10 @@ const Navbar = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden bg-white absolute top-full left-0 right-0 shadow-md animate-fade-in">
             <div className="flex flex-col items-center py-4 space-y-4">
-              <a href="#" className="text-fashion-dark-gray hover:text-primary transition-colors">Men</a>
-              <a href="#" className="text-fashion-dark-gray hover:text-primary transition-colors">Women</a>
-              <a href="#" className="text-fashion-dark-gray hover:text-primary transition-colors">Accessories</a>
-              <a href="#" className="text-fashion-dark-gray hover:text-primary transition-colors">Collections</a>
-              <button className="bg-fashion-dark-gray text-white px-6 py-2 rounded hover:bg-primary transition-colors">
-                Shop Now
-              </button>
+              <a href="#" className="text-fashion-dark-gray hover:text-primary transition-colors">Home</a>
+              <a href="#" className="text-fashion-dark-gray hover:text-primary transition-colors">About</a>
+              <a href="#" className="text-fashion-dark-gray hover:text-primary transition-colors">Feature</a>
+              <a href="#" className="text-fashion-dark-gray hover:text-primary transition-colors">Contact</a>
             </div>
           </div>
         )}
