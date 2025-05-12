@@ -2,10 +2,10 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import HeroSection from '@/components/HeroSection';
-import FeaturedCollection from '@/components/FeaturedCollection';
-import Testimonials from '@/components/Testimonials';
-import Subscribe from '@/components/Subscribe';
+import HeroSection from '@/components/Home';
+import FeaturedCollection from '@/components/About';
+import Testimonials from '@/components/Feedback';
+import Subscribe from '@/components/Contact';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 

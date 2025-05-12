@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu } from 'lucide-react';
@@ -36,10 +35,10 @@ const Navbar = () => {
           
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#" className="text-fashion-dark-gray hover:text-primary transition-colors">Home</a>
-            <a href="#" className="text-fashion-dark-gray hover:text-primary transition-colors">About</a>
-            <a href="#" className="text-fashion-dark-gray hover:text-primary transition-colors">Feature</a>
-            <a href="#" className="text-fashion-dark-gray hover:text-primary transition-colors">Contact</a>
+            <a href="#home" className="text-fashion-dark-gray hover:text-primary transition-colors">Home</a>
+            <a href="#about" className="text-fashion-dark-gray hover:text-primary transition-colors">About</a>
+            <a href="#feedback" className="text-fashion-dark-gray hover:text-primary transition-colors">Feedback</a>
+            <a href="#contact" className="text-fashion-dark-gray hover:text-primary transition-colors">Contact</a>
           </div>
           
           {/* Mobile Menu Button */}
@@ -56,10 +55,10 @@ const Navbar = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden bg-white absolute top-full left-0 right-0 shadow-md animate-fade-in">
             <div className="flex flex-col items-center py-4 space-y-4">
-              <a href="#" className="text-fashion-dark-gray hover:text-primary transition-colors">Home</a>
-              <a href="#" className="text-fashion-dark-gray hover:text-primary transition-colors">About</a>
-              <a href="#" className="text-fashion-dark-gray hover:text-primary transition-colors">Feature</a>
-              <a href="#" className="text-fashion-dark-gray hover:text-primary transition-colors">Contact</a>
+              <a href="#home" className="text-fashion-dark-gray hover:text-primary transition-colors">Home</a>
+              <a href="#about" className="text-fashion-dark-gray hover:text-primary transition-colors">About</a>
+              <a href="#feedback" className="text-fashion-dark-gray hover:text-primary transition-colors">Feedback</a>
+              <a href="#contact" className="text-fashion-dark-gray hover:text-primary transition-colors">Contact</a>
             </div>
           </div>
         )}
