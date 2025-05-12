@@ -43,27 +43,27 @@ const FeaturedCollection = () => {
   }, [activeIndex]);
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Explore Our Collection</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">Explore Our Collection</h2>
         
-        <div className="flex flex-col md:flex-row gap-8">
+        <div className="flex flex-col md:flex-row gap-6">
           {/* Left Column - Text */}
-          <div className="md:w-1/3 flex flex-col justify-center">
-            <h3 className="text-2xl font-semibold mb-4">Shirts That Define Style</h3>
-            <p className="text-lg text-gray-600 mb-6">
+          <div className="md:w-1/2 flex flex-col justify-center">
+            <h3 className="text-2xl font-semibold mb-3">Shirts That Define Style</h3>
+            <p className="text-gray-600 mb-4">
               From casual cottons to premium fits — we blend comfort with trend. Our collection 
               represents the perfect balance between timeless classics and contemporary fashion.
             </p>
-            <p className="text-lg text-gray-600">
+            <p className="text-gray-600">
               Each piece is carefully designed with attention to detail, quality fabrics, and 
               impeccable craftsmanship to ensure you always look your best.
             </p>
           </div>
           
-          {/* Right Column - Image Slider */}
-          <div className="md:w-2/3" ref={sliderRef}>
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg shadow-lg">
+          {/* Right Column - Image Slider (Reduced Size) */}
+          <div className="md:w-1/2" ref={sliderRef}>
+            <div className="relative aspect-[3/2] w-full overflow-hidden rounded-lg shadow-md">
               {/* Image Stack */}
               {shirtImages.map((image, index) => (
                 <div 
@@ -82,15 +82,15 @@ const FeaturedCollection = () => {
               ))}
               
               {/* Pagination Dots */}
-              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
+              <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 flex space-x-1.5 z-20">
                 {shirtImages.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setActiveIndex(index)}
                     className={cn(
-                      "w-2.5 h-2.5 rounded-full transition-all duration-300",
+                      "w-2 h-2 rounded-full transition-all duration-300",
                       activeIndex === index 
-                        ? "bg-white scale-125" 
+                        ? "bg-white scale-110" 
                         : "bg-white/50 hover:bg-white/80"
                     )}
                     aria-label={`Go to slide ${index + 1}`}
