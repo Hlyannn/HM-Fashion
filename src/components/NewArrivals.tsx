@@ -1,3 +1,4 @@
+
 import React, { useRef, useEffect } from 'react';
 import Slider from 'react-slick';
 import gsap from 'gsap';
