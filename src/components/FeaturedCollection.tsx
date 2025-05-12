@@ -1,23 +1,12 @@
 
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import anime from 'animejs';
+import { cn } from '@/lib/utils';
 
 const FeaturedCollection = () => {
-  const gridRef = useRef<HTMLDivElement>(null);
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
   
-  useEffect(() => {
-    if (gridRef.current) {
-      anime({
-        targets: gridRef.current.querySelectorAll('.collection-image'),
-        opacity: [0, 1],
-        translateY: [50, 0],
-        delay: anime.stagger(100),
-        easing: 'easeOutQuad',
-        duration: 800
-      });
-    }
-  }, []);
-
   // Sample images for shirts
   const shirtImages = [
     'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?q=80&w=1588&auto=format&fit=crop',
@@ -27,6 +16,31 @@ const FeaturedCollection = () => {
     'https://images.unsplash.com/photo-1582551272941-4dc13d5279d1?q=80&w=1074&auto=format&fit=crop',
     'https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?q=80&w=1470&auto=format&fit=crop'
   ];
+  
+  // Animation for image transitions
+  useEffect(() => {
+    // Interval for changing images every 3 seconds
+    const interval = setInterval(() => {
+      setActiveIndex(prev => (prev + 1) % shirtImages.length);
+    }, 3000);
+    
+    return () => clearInterval(interval);
+  }, [shirtImages.length]);
+  
+  // Animation for when images transition
+  useEffect(() => {
+    if (sliderRef.current) {
+      const currentImage = sliderRef.current.querySelector(`.image-slide-${activeIndex}`);
+      
+      anime({
+        targets: currentImage,
+        opacity: [0, 1],
+        scale: [0.9, 1],
+        easing: 'easeOutQuad',
+        duration: 800
+      });
+    }
+  }, [activeIndex]);
 
   return (
     <section className="py-20 bg-white">
@@ -47,21 +61,42 @@ const FeaturedCollection = () => {
             </p>
           </div>
           
-          {/* Right Column - Grid of Images */}
-          <div className="md:w-2/3" ref={gridRef}>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {/* Right Column - Image Slider */}
+          <div className="md:w-2/3" ref={sliderRef}>
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg shadow-lg">
+              {/* Image Stack */}
               {shirtImages.map((image, index) => (
                 <div 
                   key={index} 
-                  className="collection-image aspect-square overflow-hidden rounded-md shadow-md opacity-0"
+                  className={cn(
+                    `image-slide-${index} absolute inset-0 w-full h-full transition-opacity duration-1000`,
+                    activeIndex === index ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                  )}
                 >
                   <img 
                     src={image} 
                     alt={`Fashion shirt ${index + 1}`} 
-                    className="w-full h-full object-cover object-center hover:scale-110 transition-transform duration-700"
+                    className="w-full h-full object-cover object-center"
                   />
                 </div>
               ))}
+              
+              {/* Pagination Dots */}
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
+                {shirtImages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setActiveIndex(index)}
+                    className={cn(
+                      "w-2.5 h-2.5 rounded-full transition-all duration-300",
+                      activeIndex === index 
+                        ? "bg-white scale-125" 
+                        : "bg-white/50 hover:bg-white/80"
+                    )}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
