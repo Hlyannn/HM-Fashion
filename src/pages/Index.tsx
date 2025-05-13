@@ -8,6 +8,8 @@ import Testimonials from '@/components/Feedback';
 import Subscribe from '@/components/Contact';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
+import Vision from '@/components/Vision';
+
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);

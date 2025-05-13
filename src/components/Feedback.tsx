@@ -1,4 +1,3 @@
-
 import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -18,25 +17,25 @@ type Testimonial = {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: 'Sophie Allen',
+    name: 'Hin Hay Man',
     role: 'Fashion Blogger',
-    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80',
+    avatar: '/images/Hin Hay Man.jpg',
     quote: 'HM Fashion has completely transformed my wardrobe. The quality and style are unmatched, and I always receive compliments on their pieces.',
     rating: 5
   },
   {
     id: 2,
-    name: 'Michael Roberts',
+    name: 'Kyaw Thu Ya',
     role: 'Photographer',
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80',
+    avatar: '/images/Kyaw Thu Ya.jpg',
     quote: 'As someone who works in a creative field, finding clothes that are both functional and stylish is essential. HM Fashion delivers on both fronts.',
     rating: 4
   },
   {
     id: 3,
-    name: 'Amelia Parker',
+    name: 'U Kaung Zaw',
     role: 'Interior Designer',
-    avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80',
+    avatar: '/images/U Kaung Zaw.jpg',
     quote: 'I appreciate the sustainable approach HM Fashion takes with their collections. Eco-friendly and fashionable is exactly what I look for.',
     rating: 5
   }
@@ -123,10 +122,10 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 bg-fashion-lavender bg-opacity-20">
+    <section ref={sectionRef} id="feedback" className="py-20 bg-gradient-to-br from-[#8DB580] to-[#C2CFB2]">
       <div className="container mx-auto px-4">
-        <h2 ref={titleRef} className="text-3xl md:text-4xl font-bold text-center mb-4">What Our Customers Say</h2>
-        <p className="text-xl text-center text-gray-600 mb-12">Real stories from satisfied customers</p>
+        <h2 ref={titleRef} className="text-3xl md:text-4xl font-bold text-center mb-4 text-white">What Our Customers Say</h2>
+        <p className="text-xl text-center text-white/90 mb-12">Real stories from satisfied customers</p>
         
         <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map(testimonial => (

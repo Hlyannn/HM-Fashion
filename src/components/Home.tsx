@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 
@@ -28,6 +27,7 @@ const HeroSection = () => {
   return (
     <section 
       ref={heroRef} 
+      id="home"
       className="relative min-h-screen flex items-center justify-center py-24"
     >
       {/* Background Image with Overlay */}
